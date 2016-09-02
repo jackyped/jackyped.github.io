@@ -49,7 +49,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6">
-                <textarea id="editor" class="form-control"></textarea>
+                <textarea id="editor" class="form-control" v-model="rawMarkdown"></textarea>
             </div>
             <div id="preview" class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
@@ -70,6 +70,19 @@
 
     <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js"></script>
+
+	<script>
+	    var vm = new Vue({
+	        el: "#app",
+	        data: {
+	        	rawMarkdown: '#标题1 \r\n ##标题2'
+	        }
+	    });
+	</script>
+
+
 </body>
 
 </html>
