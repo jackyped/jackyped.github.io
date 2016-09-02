@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
+<style>
+</style>
+</head>
+<body>
+  <h3>列表的选中</h3>
+	<div id="app">
+	  <div class="collection">
+	    <a href="#!" class="collection-item"
+	       v-for="gameName in gameNames"
+	       @click="selected(gameName)"
+	       :class="{active: activeName == gameName}">{{gameName}}</a>
+	  </div>
+	</div>
+	  <script src="vue/vue.min.js"></script>
+	
+    <script type="text/javascript">
+		new Vue({
+		  el: "#app",
+		  data: {
+		    gameNames: ['魔兽世界', '暗黑破坏神Ⅲ', '星际争霸Ⅱ', '炉石传说', '风暴英雄',
+		      '守望先锋'
+		    ],
+		    activeName: ''
+		  },
+		  methods: {
+		    selected: function(gameName) {
+		      this.activeName = gameName
+		    }
+		  }
+		});
+	</script>
+</body>
+</html>
