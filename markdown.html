@@ -3,7 +3,7 @@
 
 <head>
     <title>GitHub Markdown Preview with VueJs - coligo</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="github-markdown.css">
 
     <style>
@@ -63,23 +63,36 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <button type="button" class="btn btn-primary pull-right">Preview</button>
+                <button type="button" class="btn btn-primary pull-right" @click="renderPreview(this.rawMarkdown)">Preview</button>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
-	<script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js"></script>
-
+    <script src="jquery/jquery.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="vue/vue.js"></script>
+	<script src="vue-resource/vue-resource.min.js"></script>
+ 	<script src="md/lib/markdown.js"></script>
+	
 	<script>
-	    var vm = new Vue({
-	        el: "#app",
-	        data: {
-	        	rawMarkdown: '#标题1 \r\n ##标题2'
-	        }
-	    });
+		var vm = new Vue(
+		    {
+		        el : "#app",
+		        data :
+		        {
+		            rawMarkdown : '#输入法   ###长点撒点档发',
+		            renderedMarkdown : ''
+		        },
+		        methods :
+		        {
+		         	function renderPreview(input) {
+					        var innerHTML = markdown.toHTML(input);
+					        renderedMarkdown = innerHTML;
+					      }
+		            }
+		        }
+		    }
+		    );
 	</script>
 
 
